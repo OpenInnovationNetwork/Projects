@@ -3,7 +3,6 @@ $(function(){
   $( document ).ready(function(){
     //code to call the github api and get the files from the "projects" folder
 
-    access_token = "f3108954a7c1798052bf5d2769401831486f942d"; //personal access token
     path = "projects/";
     
     projects_count = 0;
@@ -11,7 +10,7 @@ $(function(){
 
     // FIND ALL THE FILES INSIDE THE FOLDER
     $.ajax({
-      url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+path+"?access_token="+access_token,
+      url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+path,
       method: "get"
     })
     .success(function(allFiles){
@@ -22,7 +21,7 @@ $(function(){
           projects_count++;
           
           $.ajax({
-            url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+value.path+"?access_token="+access_token,
+            url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+value.path,
             method: "get"
           })
           .success(function( fileResponse ) {
