@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project registration | Open Network Innovation</title>
+
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize css compiled and minified -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="http://web.mit.edu/law/blockchain/" class="brand-logo">Open Network Innovation</a>
+    </div>
+  </nav>
+
+  <!-- Success message -->
+  <div id="modal-success" class="modal">
+    <div class="modal-content">
+      <h4>Project registered</h4>
+      <p>Thanks for registering your project. Let's take it from napkin to launch!</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <!-- Error message -->
+  <div id="modal-error" class="modal">
+    <div class="modal-content">
+      <h4>Error</h4>
+      <p>Sorry, your project couldn't be registered. Please contact the professor to report it. </p>
+      <p>Provide the following error message: </p>
+      <p id="error-message" class="red-text"></p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2"> Register your project </h1>
+      <div class="row center">
+        
+        <!-- Form to register a project -->
+        <form id="form-create-file" class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_name" name="project_name" type="text" />
+              <label for="project_name">Project name</label>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_url" name="project_url" type="text" />
+              <label for="project_url">Project URL</label>
+            </div>
+          </div>
+         
+        
+        
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_thumbnail" name="project_thumbnail" type="text" />
+              <label for="project_thumbnail">Thumbnail URL  (if available)</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="project_blurb" name="project_blurb" class="materialize-textarea"></textarea>
+              <label for="project_blurb">Project blurb (2 or 3 lines about your project)</label>
+            </div>
+          </div>
+      
+      
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_demo_url" name="project_demo_url" type="text" />
+              <label for="project_demo_url">Demo URL (if available)</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_team_name" name="project_team_name" type="text" />
+              <label for="project_team_name">Team name</label>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="project_people" name="project_people" type="text" />
+              <label for="project_people">People</label>
+            </div>
+          </div>
+      
+
+          <button class="btn btn-lg btn-primary" type="submit">Send it to github</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Footer -->
+
+  <footer class="page-footer grey"> 
+    <div class="footer-copyright grey"> 
+      <div class="container valign-wrapper grey">
+        Licensed under Creative Commons Attribution 3.0 Unported License (c)  &nbsp; &nbsp; &nbsp;
+        <img src="img/80x15.png" class="valign" alt="Creative Commons Attribution 3.0" />
+      </div>
+    </div> 
+  </footer>
+
+
+  <!--Import jQuery and materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+  <!-- Javascript to send project info to github -->
+  <script type="text/javascript">
+  $(function(){
+    
+    /* PERSONALIZE THIS CONTENT FOR YOUR FORKED COPY */
+    access_token = "YOUR_PERSONAL_ACCESS_TOKEN"; //replace the text between "" with your personal access token
+    repository_user = "YOUR_REPO_USER"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
+    repository_name = "YOUR_REPO_NAME"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
+
+    // Submit information through github API to create a new json file
+    $('#form-create-file').on('submit', function(e){
+      e.preventDefault();  //Line  11 just prevents the action of submitting the form and refreshing the page
+
+      path = "projects/"+$("#project_name").val()+".json"; //path and filename
+      
+      content_json = JSON.stringify({
+          "project_name": $("#project_name").val().trim(),
+          "project_blurb": $("#project_blurb").val(),
+          "project_team_name": $("#project_team_name").val(),
+          "project_thumbnail": $("#project_thumbnail").val(),
+          "project_url": $("#project_url").val(),
+          "project_demo_url": $("#project_demo_url").val(),
+          "project_source": "Blockchain"
+      });
+
+      $.ajax({
+        url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+path+"?access_token="+access_token,
+        method: "put",
+        data: JSON.stringify({
+          "message": "Creating project "+$("#project_name").val(),
+          "content": btoa(content_json) // convert to base64 for github api
+        })
+      }) 
+      .success(function( response ) {
+        $('#modal-success').openModal();
+        console.log(response);
+        $('#form-create-file').find("input[type=text], textarea").val("");
+      })
+      .error(function( response ) {
+        $('#error-message').text(response.responseJSON.message);
+        $('#modal-error').openModal();
+        console.log(response.responseJSON.message);
+      });
+    
+    
+    });
+  });
+  </script>
+    
+</body>
+</html>
