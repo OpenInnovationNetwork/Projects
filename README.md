@@ -74,10 +74,11 @@ Currently, the projects that appear in your page are in the original repository.
 
 #### Generate a github personal access token
 
-* Go to your Github settings > Personal Access Tokens, and generate a new token.
-  - If you have doubts, there are instructions on Github's website: https://github.com/blog/1509-personal-api-tokens
+* Go to your Github settings > Personal Access Tokens
+* Generate a new token. Make sure you mark the "public_repo" option.
 * Copy YOUR_PERSONAL_ACCESS_TOKEN somewhere safe.
 
+If you have doubts, there are instructions on Github's website: https://github.com/blog/1509-personal-api-tokens
 
 #### Run the project registration form
 
