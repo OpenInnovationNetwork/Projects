@@ -26,7 +26,7 @@ $(function(){
           projects_count++;
           
           $.ajax({
-            url: "https://api.github.com/repos/openinnovationnetwork/Projects/contents/"+value.path,
+            url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+value.path,
             method: "get"
           })
           .success(function( fileResponse ) {
