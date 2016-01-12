@@ -63,46 +63,40 @@ $(function(){
           $('#projects-list').append('<div class="row">');
         }
 
+        project_team_name = project_people = project_thumbnail = project_url = project_demo_url = "";
+
     		if ((json_content.project_team_name != undefined) && (json_content.project_team_name != "")) {
-              json_content.project_team_name = '<br /><p><strong>Team:</strong> '+json_content.project_team_name+'</p>';
-            }
-    		else {
-    			json_content.project_team_name = "";
-    		}
+          project_team_name = '<br /><p><strong>Team:</strong> '+json_content.project_team_name+'</p>';
+        }
     		
     		if ((json_content.project_people != undefined) && (json_content.project_people != "")) {
-              json_content.project_people = '<br /><p><strong>People:</strong> '+json_content.project_people+'</p>';
-            }
-    		else {
-    			json_content.project_people = "";
-    		}
+          project_people = '<br /><p><strong>People:</strong> '+json_content.project_people+'</p>';
+        }
     		
     		if ((json_content.project_demo_url) && (json_content.project_demo_url != undefined)) {
-              json_content.project_demo_url = '<br /><p><strong>Demo:</strong> <a href="'+json_content.project_demo_url+'">'+json_content.project_demo_url+'</a></p>';
-            }
-    		else {
-    			json_content.project_demo_url = "";
-    		}
+          project_demo_url = '<br /><p><strong>Demo:</strong> <a href="'+json_content.project_demo_url+'">'+json_content.project_demo_url+'</a></p>';
+        }
     		
     		if ((json_content.project_thumbnail != undefined) && (json_content.project_thumbnail != "")) {
-              json_content.project_thumbnail = '<img src="'+json_content.project_thumbnail+'" class="responsive-img thumbnail" alt="" />';
-            }
-    		else {
-    			json_content.project_thumbnail = "";
-    		}
+          project_thumbnail = '<img src="'+json_content.project_thumbnail+'" class="responsive-img thumbnail" alt="" />';
+        }
+
+        if ((json_content.project_url != undefined) && (json_content.project_url != "")) {
+          project_url = '<p><strong>Project:</strong> <a href="'+json_content.project_url+'">'+json_content.project_url+'</a></p>';
+        }
 
         $('#projects-list').append(
             '<div class="col s12 m4 l4"> '+
               '<div class="card blue-grey darken-1"> ' +
                 '<div class="card-content white-text"> ' +
-					         json_content.project_thumbnail+
+					        project_thumbnail+
                   '<h4>'+json_content.project_name+'</h4> '+
                   '<p>'+json_content.project_blurb+'</p>'+
         				  '<br /><div class="left-align">' +
-        					  json_content.project_team_name +
-        					  json_content.project_people +
-        					  '<p><strong>Project:</strong> <a href="'+json_content.project_url+'">'+json_content.project_url+'</a></p>'+
-        					  json_content.project_demo_url +
+        					  project_team_name +
+        					  project_people +
+        					  project_url +
+        					  project_demo_url +
         				  '</div> '+
                 '</div> '+
               '</div> '+
