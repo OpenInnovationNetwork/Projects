@@ -27,7 +27,7 @@ You should:
 
 Fork this repository in your github account.
 
-Take a look at the URL generated and identify your repository's user and name.
+Take a look at the URL generated and identify your repository's user and name.In this documentation, we will refer to them as REPO_USER and REPO_NAME, respectively.
 
 >
 > For example:
