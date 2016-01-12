@@ -8,9 +8,14 @@ $(function(){
     projects_count = 0;
     projects_content = new Array();
 
+    /* PERSONALIZE THIS CONTENT FOR YOUR FORKED COPY */
+    repository_user = "OpenInnovationNetwork"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
+    repository_name = "Projects"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
+
+
     // FIND ALL THE FILES INSIDE THE FOLDER
     $.ajax({
-      url: "https://api.github.com/repos/openinnovationnetwork/Projects/contents/"+path,
+      url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+path,
       method: "get"
     })
     .success(function(allFiles){
