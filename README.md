@@ -31,16 +31,19 @@ Take a look at the URL generated and identify your repository's user and name.
 
 >
 > For example:
+>
 > http://github.com/OpenInnovationNetwork/Projects/
+>
 > REPO_USER = OpenInnovationNetwork
+>
 > REPO_NAME = Projects
 >
 
 ### Set up your Project Gallery
 
-1. Access your current Gallery
+#### 1. Access your current Gallery
 
-The gallery is the index.html file in this repository.
+The gallery is the **index.html** file in this repository.
 
 Access the correspondent URL in your browser:
 http://YOUR_REPO_USER.github.io/YOUR_REPO_NAME/
@@ -48,7 +51,7 @@ http://YOUR_REPO_USER.github.io/YOUR_REPO_NAME/
 It is pulling data from the original repository, so it should look exactly like http://openinnovationnetwork.github.io/Projects/
 
 
-2. Modify your gallery to display your project's name
+#### 2. Modify your gallery to display your project's name
 
 * Open your copy of the file **index.html**
 * In line 25, replace YOUR_PROJECT_NAME with the name you want to appear in the top of the page. For example: "The Block App"
@@ -56,13 +59,13 @@ It is pulling data from the original repository, so it should look exactly like 
 * Access your repo through its URL and check if your project's name is there.
 
 
-3. Modify your gallery to pull data from your repository
+#### 3. Modify your gallery to pull data from your repository
 
 Currently, the projects that appear in your page are in the original repository.
 
 * Open your copy of the file **js/projects_retrieval.js**
-* In line 12, modify the content of the variable **repository_user** to contain your repository's user (YOUR_REPO_USER) inside quotation marks
-* In line 13, modify the content of the variable **repository_name** to contain your repository's user (YOUR_REPO_NAME) inside quotation marks
+* In line 12, modify the content of the variable ```repository_user``` to contain your repository's user (YOUR_REPO_USER) inside quotation marks
+* In line 13, modify the content of the variable ```repository_name``` to contain your repository's user (YOUR_REPO_NAME) inside quotation marks
 * Commit and push the changes to your repository
 
 
@@ -83,10 +86,10 @@ The project registration should be done in your local computer.
 Up to now you could have done everything directly from Github's interface, but for this step you strictly need to clone your repository in your computer.
 
 * Open your copy of the file **project_registration.html**
-* In line 135, modify the content of the variable **access_token** to contain 
+* In line 135, modify the content of the variable ```access_token``` to contain 
  YOUR_PERSONAL_ACCESS_TOKEN.
-* In line 136, modify the content of the variable **repository_user** to contain your repository's user (YOUR_REPO_USER) inside quotation marks
-* In line 137, modify the content of the variable **repository_name** to contain your repository's user (YOUR_REPO_NAME) inside quotation marks
+* In line 136, modify the content of the variable ```repository_user``` to contain your repository's user (YOUR_REPO_USER) inside quotation marks
+* In line 137, modify the content of the variable ```repository_name``` to contain your repository's user (YOUR_REPO_NAME) inside quotation marks
 * These changes should stay in your local computer. Do not push this file to your remote repository.
 
 
@@ -107,7 +110,14 @@ Up to now you could have done everything directly from Github's interface, but f
 * Submit a pull request with your project's JSON file (under directory /projects) to have your project displayed in http://github.com/OpenInnovationNetwork/Projects/
 
 
+
+
+
 ---
+
+
+
+
 
 ## License terms
 
