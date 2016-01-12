@@ -1,49 +1,58 @@
 $(function(){
 
+  // RETRIEVE PROJECTS FROM THE LOCAL REPO
   $( document ).ready(function(){
-    //code to call the github api and get the files from the "projects" folder
 
-    path = "projects/";
+    // Path where the projects are available
+    path = "/projects/";
     
     projects_count = 0;
     projects_content = new Array();
 
-    // FIND ALL THE FILES INSIDE THE FOLDER
+    fileextension = ".json";
+    console.log("before looking at the folder");
     $.ajax({
-      url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+path,
-      method: "get"
-    })
-    .success(function(allFiles){
-      $.each(allFiles, function (index, value) {
-        // GET CONTENT OF EACH JSON FILE
-        if ((value.type == "file") && (value.name.split('.').pop() == "json")) {
+      //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+      url: path,
+      success: function (data) {
+        console.log("data");
+        console.log(data);
+        $(data).find("a:contains(" + fileextension + ")").each(allFiles, function (value) {
+          console.log("found a json file ");
+          console.log(value);
+          var filename = this.href.replace(window.location.host, "").replace("http://", "");
 
-          projects_count++;
-          
-          $.ajax({
-            url: "https://api.github.com/repos/openinnovationnetwork/2016-MIT-IAP-PrototypeJam/contents/"+value.path,
-            method: "get"
-          })
-          .success(function( fileResponse ) {
-            // PARSE CONTENT
-            base64decoded = atob(fileResponse.content);
+          // GET CONTENT OF EACH JSON FILE
+          if ((filename.type == "file") && (filename.name.split('.').pop() == "json")) {
+
+            projects_count++;
             
-            try {
-              json_content = jQuery.parseJSON(base64decoded);
+            $.ajax({
+              url: path+filename,
+              method: "get"
+            })
+            .success(function( fileResponse ) {
+              // PARSE CONTENT
+              base64decoded = atob(fileResponse.content);
+              
+              try {
+                json_content = jQuery.parseJSON(base64decoded);
 
-              // Add to list of contents
-              if (json_content.project_name && json_content.project_blurb) {
-                projects_content.push(json_content);
+                // Add to list of contents
+                if (json_content.project_name && json_content.project_blurb) {
+                  projects_content.push(json_content);
+                }
+
+                console.log('Retrieved file content');
+              } catch (e) {
+                // invalid json
               }
-
-              console.log('Retrieved file content');
-            } catch (e) {
-              // invalid json
-            }
-          });
-        }
-      });
+            });
+          }
+        });
+      }
     });
+
 
     // THE CONTENT OF ALL FILES WAS RETRIEVED
     $(document).ajaxStop(function() {
