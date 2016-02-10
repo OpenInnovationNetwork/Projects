@@ -9,8 +9,10 @@ $(function(){
     projects_content = new Array();
 
     /* PERSONALIZE THIS CONTENT FOR YOUR FORKED COPY */
-    // repository_user = "OpenInnovationNetwork"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
-    // repository_name = "Projects"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
+    // List of repositories in the format ["repository_user", "repository_name"]
+    // Example: in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
+    //     repository_user = "OpenInnovationNetwork"
+    //     repository_name = "Projects"
     repository_list = [
       ["OpenInnovationNetwork", "Projects"],
       ["gscardine", "Projects"]
@@ -21,13 +23,13 @@ $(function(){
       repository_user = repository_list[i][0];
       repository_name = repository_list[i][1];
       
-
       // FIND ALL THE FILES INSIDE THE FOLDER
       $.ajax({
         url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+path,
         method: "get"
       })
       .success(function(allFiles){
+
         $.each(allFiles, function (index, value) {
           // GET CONTENT OF EACH JSON FILE
           if ((value.type == "file") && (value.name.split('.').pop() == "json")) {
@@ -35,7 +37,7 @@ $(function(){
             projects_count++;
             
             $.ajax({
-              url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+value.path,
+              url: value.url,
               method: "get"
             })
             .success(function( fileResponse ) {
@@ -52,6 +54,10 @@ $(function(){
               } catch (e) {
                 // invalid json
               }
+            })
+            .fail(function($xhr) {
+                var data = $xhr.responseJSON;
+                console.log(data);
             });
           }
         });
@@ -67,18 +73,13 @@ $(function(){
       
       // SHOW CONTENT AS CARDS
       $.each(projects_content, function (index, json_content) {
-        
         template = new Array();
         if (index % 3 == 0) {
           $('#projects-list').append('<div class="row">');
         }
 
-        project_team_name = project_people = project_thumbnail = project_url = project_demo_url = "";
+        project_people = project_thumbnail = project_url = project_demo_url = "";
 
-    		if ((json_content.project_team_name != undefined) && (json_content.project_team_name != "")) {
-          project_team_name = '<br /><p><strong>Team:</strong> '+json_content.project_team_name+'</p>';
-        }
-    		
     		if ((json_content.project_people != undefined) && (json_content.project_people != "")) {
           project_people = '<br /><p><strong>People:</strong> '+json_content.project_people+'</p>';
         }
@@ -103,7 +104,6 @@ $(function(){
                   '<h4>'+json_content.project_name+'</h4> '+
                   '<p>'+json_content.project_blurb+'</p>'+
         				  '<br /><div class="left-align">' +
-        					  project_team_name +
         					  project_people +
         					  project_url +
         					  project_demo_url +
