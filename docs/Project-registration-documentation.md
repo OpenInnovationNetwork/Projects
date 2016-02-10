@@ -15,10 +15,10 @@ You can register a project in two ways:
 | ---------- | ----------- | -------- |
 | project_name | Name of the project | Required |
 | project_blurb | Brief description of the project (2 or 3 sentences) | Required |
-| project_people | People involved in the project | Optional |
-| project_thumbnail | URL to an image describing the project | Optional |
-| project_url | URL to the main online page for the project | Optional |
+| project_people | People involved in the project | Required |
+| project_url | URL to the main online page for the project | Required |
 | project_demo_url | URL to an example of this project implemented | Optional |
+| project_thumbnail | URL to an image describing the project | Optional |
 
 ## Future JSON fields
 
