@@ -4,7 +4,7 @@
 
 You can register a project in two ways:
 
-1. Follow the instructions on the (README page)[https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/README.md] to open the (project_registration.html)[https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/project_registration.html] file locally, fill in a simple form, and have your project registered in your repository.
+1. Follow the instructions on the [README page](https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/README.md) to open the [project_registration.html](https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/project_registration.html) file locally, fill in a simple form, and have your project registered in your repository.
 
 2. Manually create a JSON file inside the /projects folder of your repository.
 

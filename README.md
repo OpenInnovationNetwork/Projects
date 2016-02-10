@@ -24,10 +24,10 @@ To use this template you can:
 ## Documentation files
 
 > 
-> //TODO: Add support to (readthedocs)[https://readthedocs.org/]
+> //TODO: Add support to [readthedocs](https://readthedocs.org/)
 >
 
-* (Project registration)[https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/docs/Project-registration-documentation.md]
+* [Project registration](https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/docs/Project-registration-documentation.md)
 
 
 ---
