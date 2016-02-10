@@ -1,6 +1,8 @@
 # Open Innovation Network Project Sources
 
-Paths to the repositories that contain a */projects* folder with JSON files describing projects.
+Paths to the repositories that will be displayed in this project gallery.
+
+All repositories listed must contain a folder named *projects*, containing JSON files with project content.
 
 >
 > Example:
