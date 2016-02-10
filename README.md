@@ -1,7 +1,7 @@
 # README
 The Projects repository for Open Innovation Network
 
-Available at
+Available at:
 
 http://openinnovationnetwork.github.io/Projects/
 
@@ -11,15 +11,27 @@ http://openinnovationnetwork.github.io/Projects/
 
 ### Project Template
 
-A project template is available in https://docs.google.com/presentation/d/1Smi79L9L78V07MNZ6BkURArLeUubN4U0WKo8WmVGB8g/edit#slide=id.p
+If you are creating or consolidating your project, you might want to look at the project template created by MIT Media Lab's Dazza Greenwood: https://docs.google.com/presentation/d/1Smi79L9L78V07MNZ6BkURArLeUubN4U0WKo8WmVGB8g/edit#slide=id.p
 
-You should:
+To use this template you can:
 
 * Request authorization to the Google Drive folder
-* Make a copy of the current template in the same Google Drive folder
+* Make a copy of the template in the same Google Drive folder
 * Fill out the template
 
 ---
+
+## Documentation files
+
+> 
+> //TODO: Add support to [readthedocs](https://readthedocs.org/)
+>
+
+* [Project registration](https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/docs/Project-registration-documentation.md)
+
+
+---
+
 
 ## Instructions for this repository
 
