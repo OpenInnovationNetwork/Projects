@@ -27,7 +27,7 @@ To use this template you can:
 > //TODO: Add support to (readthedocs)[https://readthedocs.org/]
 >
 
-* (Project registration)[http://github.com/OpenInnovationNetwork/Projects/docs/Project-registration-documentation.md]
+* (Project registration)[https://github.com/OpenInnovationNetwork/Projects/blob/gh-pages/docs/Project-registration-documentation.md]
 
 
 ---
