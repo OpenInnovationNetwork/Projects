@@ -9,44 +9,54 @@ $(function(){
     projects_content = new Array();
 
     /* PERSONALIZE THIS CONTENT FOR YOUR FORKED COPY */
-    repository_user = "OpenInnovationNetwork"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
-    repository_name = "Projects"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
+    // repository_user = "OpenInnovationNetwork"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
+    // repository_name = "Projects"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
+    repository_list = [
+      ["OpenInnovationNetwork", "Projects"],
+      ["gscardine", "Projects"]
+    ];
 
+    // int i = 0;
+    for (var i = 0; i < repository_list.length; i++) {
+      repository_user = repository_list[i][0];
+      repository_name = repository_list[i][1];
+      
 
-    // FIND ALL THE FILES INSIDE THE FOLDER
-    $.ajax({
-      url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+path,
-      method: "get"
-    })
-    .success(function(allFiles){
-      $.each(allFiles, function (index, value) {
-        // GET CONTENT OF EACH JSON FILE
-        if ((value.type == "file") && (value.name.split('.').pop() == "json")) {
+      // FIND ALL THE FILES INSIDE THE FOLDER
+      $.ajax({
+        url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+path,
+        method: "get"
+      })
+      .success(function(allFiles){
+        $.each(allFiles, function (index, value) {
+          // GET CONTENT OF EACH JSON FILE
+          if ((value.type == "file") && (value.name.split('.').pop() == "json")) {
 
-          projects_count++;
-          
-          $.ajax({
-            url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+value.path,
-            method: "get"
-          })
-          .success(function( fileResponse ) {
-            // PARSE CONTENT
-            base64decoded = atob(fileResponse.content);
+            projects_count++;
             
-            try {
-              json_content = jQuery.parseJSON(base64decoded);
+            $.ajax({
+              url: "https://api.github.com/repos/"+repository_user+"/"+repository_name+"/contents/"+value.path,
+              method: "get"
+            })
+            .success(function( fileResponse ) {
+              // PARSE CONTENT
+              base64decoded = atob(fileResponse.content);
+              
+              try {
+                json_content = jQuery.parseJSON(base64decoded);
 
-              // Add to list of contents
-              if (json_content.project_name && json_content.project_blurb) {
-                projects_content.push(json_content);
+                // Add to list of contents
+                if (json_content.project_name && json_content.project_blurb) {
+                  projects_content.push(json_content);
+                }
+              } catch (e) {
+                // invalid json
               }
-            } catch (e) {
-              // invalid json
-            }
-          });
-        }
+            });
+          }
+        });
       });
-    });
+    }
 
     // THE CONTENT OF ALL FILES WAS RETRIEVED
     $(document).ajaxStop(function() {
