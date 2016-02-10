@@ -13,7 +13,9 @@ $(function(){
     // repository_name = "Projects"; //eg. in github.com/OpenInnovationNetwork/Projects/, it is "Projects"
     repository_list = [
       ["OpenInnovationNetwork", "Projects"],
-      ["StandardLaw", "Projects"]
+      ["StandardLaw", "Projects"],
+      ["gscardine", "Projects"]
+
     ];
 
     // int i = 0;
