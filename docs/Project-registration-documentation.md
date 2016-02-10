@@ -11,14 +11,14 @@ You can register a project in two ways:
 
 ## Structure of the JSON content
 
-| Field name | Description |
-| ---------- | ----------- |
-| project_name | Name of the project |
-| project_blurb | Brief description of the project (2 or 3 sentences) |
-| project_people | People involved in the project |
-| project_thumbnail | URL to an image describing the project |
-| project_url | URL to the main online page for the project |
-| project_demo_url | URL to an example of this project implemented |
+| Field name | Description | Required |
+| ---------- | ----------- | -------- |
+| project_name | Name of the project | Required |
+| project_blurb | Brief description of the project (2 or 3 sentences) | Required |
+| project_people | People involved in the project | Optional |
+| project_thumbnail | URL to an image describing the project | Optional |
+| project_url | URL to the main online page for the project | Optional |
+| project_demo_url | URL to an example of this project implemented | Optional |
 
 ## Future JSON fields
 
