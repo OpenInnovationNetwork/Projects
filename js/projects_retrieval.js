@@ -15,7 +15,9 @@ $(function(){
     //     repository_name = "Projects"
     repository_list = [
       ["OpenInnovationNetwork", "Projects"],
+      ["StandardLaw", "Projects"],
       ["gscardine", "Projects"]
+
     ];
 
     // int i = 0;
