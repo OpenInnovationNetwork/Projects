@@ -17,7 +17,6 @@ $(function(){
       ["OpenInnovationNetwork", "Projects"],
       ["StandardLaw", "Projects"],
       ["gscardine", "Projects"]
-      ["jumblerg", "Projects"]
 
 
     ];
