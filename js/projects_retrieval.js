@@ -14,10 +14,8 @@ $(function(){
     //     repository_user = "OpenInnovationNetwork"
     //     repository_name = "Projects"
     repository_list = [
-      ["OpenInnovationNetwork", "Projects"],
       ["StandardLaw", "Projects"],
       ["natashanelson", "Projects"],
-      ["gscardine", "Projects"]
 
 
     ];
