@@ -10,15 +10,14 @@ $(function(){
 
     /* PERSONALIZE THIS CONTENT FOR YOUR FORKED COPY */
     // List of repositories in the format ["repository_user", "repository_name"]
+    // EG:  ["gscardine", "Projects"] and ["OpenInnovationNetwork", "Projects"],
     // Example: in github.com/OpenInnovationNetwork/Projects/, it is "OpenInnovationNetwork"
     //     repository_user = "OpenInnovationNetwork"
     //     repository_name = "Projects"
     repository_list = [
-      ["OpenInnovationNetwork", "Projects"],
       ["StandardLaw", "Projects"],
-      ["Civics", "Projects"],
-      ["natashanelson", "Projects"],
-      ["gscardine", "Projects"]
+      ["CIVICS", "Projects"],
+      ["natashanelson", "Projects"]
 
 
     ];
