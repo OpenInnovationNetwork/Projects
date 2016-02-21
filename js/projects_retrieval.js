@@ -16,6 +16,7 @@ $(function(){
     repository_list = [
       ["OpenInnovationNetwork", "Projects"],
       ["StandardLaw", "Projects"],
+      ["Civics", "Projects"],
       ["natashanelson", "Projects"],
       ["gscardine", "Projects"]
 
