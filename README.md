@@ -84,7 +84,24 @@ Currently, the projects that appear in your page are in the original repository.
 
 ### Add your project to your repository
 
-#### Generate a github personal access token
+#### Generate a file and upload it to github manually
+
+If you want this file to be uploaded directly to github, follow the next steps.
+
+Otherwise, this is the simple procedure:
+
+* Open your Github Page for ```project_registration_simple.html```
+ * ```http://YOUR_REPO_USER.github.io/YOUR_REPO_NAME/project_registration_simple.html```
+* Fill out the form
+* Upload to github the file generated there.
+
+#### Upload it directly to github (requires credentials -- takes 5-10 minutes more)
+
+Follow the next 2 steps if you want to upload your project directly to github.
+
+This requires setting up your credentials, so you will need to download a file to your computer (if you haven't already cloned this project), modify it there, and open it in a browser. It takes 5-10 min more than the simple procedure.
+
+##### Generate a github personal access token
 
 * Go to your Github settings > Personal Access Tokens
 * Generate a new token. Make sure you mark the "public_repo" option.
@@ -92,7 +109,7 @@ Currently, the projects that appear in your page are in the original repository.
 
 If you have doubts, there are instructions on Github's website: https://github.com/blog/1509-personal-api-tokens
 
-#### Run the project registration form
+##### Run the project registration form
 
 The project registration should be done in your local computer.
 
