@@ -19,7 +19,8 @@ $(function(){
       ["LawAsCode", "Projects"],
       ["CIVICS", "Projects"],
       ["natashanelson", "Projects"],
-      ["gscardine", "Projects"]
+      ["gscardine", "Projects"],
+      ["jaskin", "Projects"]
 
 
     ];
