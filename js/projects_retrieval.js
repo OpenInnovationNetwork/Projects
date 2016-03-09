@@ -18,7 +18,8 @@ $(function(){
       ["StandardLaw", "Projects"],
       ["LawAsCode", "Projects"],
       ["CIVICS", "Projects"],
-      ["natashanelson", "Projects"]
+      ["natashanelson", "Projects"],
+      ["gscardine", "Projects"]
 
 
     ];
