@@ -86,12 +86,13 @@ Currently, the projects that appear in your page are in the original repository.
 
 #### Generate a file and upload it to github manually
 
-If you want this file to be uploaded directly to github, follow the next steps.
+This is a simple process to add your project to a gallery.
 
-Otherwise, this is the simple procedure:
+It does not upload it directly to github, because that requires more complicated steps. If you want to do that, follow the next steps.
 
-* Open your Github Page for ```project_registration_simple.html```
- * ```http://YOUR_REPO_USER.github.io/YOUR_REPO_NAME/project_registration_simple.html```
+If you want to keep it simple, do this:
+
+* Open the simple project registration form [**project_registration_simple.html**](http://openinnovationnetwork.github.io/Projects/project_registration_simple.html)
 * Fill out the form
 * Upload to github the file generated there.
 
