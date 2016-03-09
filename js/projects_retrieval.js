@@ -17,6 +17,7 @@ $(function(){
     repository_list = [
       ["StandardLaw", "Projects"],
       ["CIVICS", "Projects"],
+      ["LawasCode", "Projects"],
       ["natashanelson", "Projects"]
 
 
